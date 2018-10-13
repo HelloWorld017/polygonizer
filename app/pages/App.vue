@@ -8,9 +8,13 @@
 				<props-controller :options="options"></props-controller>
 				<path-view :path-list="pathList" v-model="selectedPaths"></path-view>
 				<section class="Render">
-					<h2 class="Render__title SectionTitle">Render</h2>
+					<h2 class="Render__title SectionTitle">Render ({{filename}})</h2>
 					<button class="Button" @click="render">
 						Render
+					</button>
+
+					<button class="Button" @click="save">
+						Download SVG
 					</button>
 				</section>
 			</template>
@@ -124,6 +128,7 @@
 	export default {
 		data() {
 			return {
+				filename: '',
 				source: null,
 				svg: null,
 				options: polygonizer.options,
@@ -143,6 +148,7 @@
 				pathInfo = polygonizer.parse(this.source);
 				this.pathList = [...Array(pathInfo.path.length)].map((v, i) => i);
 				this.selectedPaths = this.pathList.slice();
+				this.filename = file.name;
 
 				this.render();
 			},
@@ -150,6 +156,14 @@
 			render() {
 				const renderingPaths = pathInfo.path.filter((v, i) => this.selectedPaths.includes(i));
 				this.svg = polygonizer.render(this.$refs.canvas, pathInfo.width, pathInfo.height, renderingPaths);
+			},
+
+			save() {
+				const url = URL.createObjectURL(new Blob([this.svg], {type: 'text/plain'}));
+				const a = document.createElement('a');
+				a.href = url;
+				a.download = this.filename.split('.')[0] + '-polygonized.svg';
+				a.click();
 			}
 		},
 

@@ -150,8 +150,8 @@ class Polygonizer {
 				ctx.stroke();
 
 				svg += `<path stroke="${color}" stroke-width="${lineWidth}px" fill="none" ` +
-					`d="M ${xOffset + method.start.x * scale}, ${yOffset + method.start.y * scale}` +
-					`L ${xOffset + method.end.x * scale}, ${yOffset + method.end.y * scale}"/>`;
+					`d="M ${method.start.x * scale}, ${method.start.y * scale}` +
+					`L ${method.end.x * scale}, ${method.end.y * scale}"/>`;
 			});
 
 			const {dots, _} = this.scatter({width, height, path});
@@ -161,7 +161,7 @@ class Polygonizer {
 				ctx.beginPath();
 				ctx.arc(xOffset + dot.x * scale, yOffset + dot.y * scale, radius, 0, 2 * Math.PI);
 				ctx.fill();
-				svg += `<circle cx="${xOffset + dot.x * scale}" cy="${yOffset + dot.y * scale}" r="${radius}"` +
+				svg += `<circle cx="${dot.x * scale}" cy="${dot.y * scale}" r="${radius}"` +
 						` fill="${color}"/>`;
 			});
 
@@ -176,8 +176,8 @@ class Polygonizer {
 				ctx.stroke();
 
 				svg += `<path stroke="${color}" stroke-width="${lineWidth}px" fill="none" ` +
-					`d="M ${xOffset + edge[0].x * scale}, ${yOffset + edge[0].y * scale}` +
-					`L ${xOffset + edge[1].x * scale}, ${yOffset + edge[1].y * scale}"/>`;
+					`d="M ${edge[0].x * scale}, ${edge[0].y * scale}` +
+					`L ${edge[1].x * scale}, ${edge[1].y * scale}"/>`;
 			});
 		});
 
