@@ -1,0 +1,249 @@
+
+.FileSelector[data-v-6f16c230] {
+  font-family: 'Roboto Condensed';
+}
+.FileSelector__dropzone[data-v-6f16c230] {
+  width: 300px;
+  height: 200px;
+  border: 4px dashed #00bcd4;
+  color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  margin: 0 30px;
+  cursor: pointer;
+}
+.FileSelector__dropzone--active[data-v-6f16c230] {
+  background: #00bcd4;
+  color: #fff;
+}
+.FileSelector__dropzone input[data-v-6f16c230] {
+  display: none;
+}
+
+
+.PathView[data-v-59172e52] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.PathList[data-v-59172e52] {
+  margin: 5px;
+  background: #fff;
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .3);
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .3);
+}
+.PathItem[data-v-59172e52] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #202020;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 30px;
+}
+.PathItem__title[data-v-59172e52] {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+.PathItem--all[data-v-59172e52] {
+  font-weight: bold;
+  border-bottom: 1px solid #d0d0d0;
+}
+.Checkbox[data-v-59172e52] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.Checkbox__input[data-v-59172e52] {
+  position: absolute;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.Checkbox__visual[data-v-59172e52] {
+  cursor: pointer;
+  width: 16px;
+  width: 1rem;
+  height: 16px;
+  height: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+.Checkbox__visual[data-v-59172e52]::before,
+.Checkbox__visual[data-v-59172e52]::after {
+  content: '';
+  display: block;
+  height: 0;
+  border: 1px solid #d0d0d0;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+.Checkbox__visual[data-v-59172e52]::before {
+  width: 3.2px;
+  width: 0.2rem;
+  -webkit-transform-origin: right center;
+          transform-origin: right center;
+}
+.Checkbox__visual[data-v-59172e52]::after {
+  width: 6.4px;
+  width: 0.4rem;
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+}
+.Checkbox__input:checked + .Checkbox__visual[data-v-59172e52] {
+  background: #00bcd4;
+}
+.Checkbox__input:checked + .Checkbox__visual[data-v-59172e52]::before,
+.Checkbox__input:checked + .Checkbox__visual[data-v-59172e52]::after {
+  border-color: #fff;
+}
+.Checkbox__input:checked + .Checkbox__visual[data-v-59172e52]::before {
+  -webkit-transform: translate(0.05rem, 0.15rem) rotate(45deg);
+          transform: translate(0.05rem, 0.15rem) rotate(45deg);
+}
+.Checkbox__input:checked + .Checkbox__visual[data-v-59172e52]::after {
+  -webkit-transform: translate(0.05rem, 0.15rem) rotate(-45deg);
+          transform: translate(0.05rem, 0.15rem) rotate(-45deg);
+}
+
+
+.PropsController[data-v-5ae7cd4f] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.PropsController__title[data-v-5ae7cd4f] {
+  width: 100%;
+  text-align: left;
+}
+
+
+* {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+.SectionTitle {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #202020;
+  margin-top: 40px;
+}
+
+
+#app[data-v-570277ac] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #f1f2f3;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  height: 100vh;
+  width: 100vw;
+}
+canvas[data-v-570277ac] {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.Button[data-v-570277ac] {
+  cursor: pointer;
+  width: 100%;
+  height: 60px;
+  background: #00bcd4;
+  border: none;
+  color: #fff;
+  font-family: Roboto Condensed;
+  font-size: 19.2px;
+  font-size: 1.2rem;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  outline: none;
+}
+.Button[data-v-570277ac]:hover {
+  background: #00c5de;
+}
+.Button[data-v-570277ac]:active {
+  background: #00b3ca;
+}
+.Sidebar[data-v-570277ac] {
+  width: 400px;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: auto;
+  border-left: 1px solid #d4d5d6;
+}
+.Sidebar__title[data-v-570277ac] {
+  font-family: 'Roboto Condensed';
+  font-size: 32px;
+  font-size: 2rem;
+  color: #202020;
+}
+.Scroller[data-v-570277ac] {
+  color: rgba(0, 0, 0, .1);
+  -webkit-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+}
+.Scroller[data-v-570277ac]:hover {
+  color: rgba(0, 0, 0, .2);
+}
+.Scroller[data-v-570277ac]::-webkit-scrollbar {
+  background: transparent;
+  height: 8px;
+}
+.Scroller[data-v-570277ac]::-webkit-scrollbar-thumb {
+  background: transparent;
+  -webkit-box-shadow: inset 0 0 0 10px;
+          box-shadow: inset 0 0 0 10px;
+}
+.Scroller--vertical[data-v-570277ac]::-webkit-scrollbar {
+  width: 15px;
+}
+.Scroller--horizontal[data-v-570277ac]::-webkit-scrollbar {
+  height: 15px;
+}
+
+
+/*# sourceMappingURL=polygonizer.bundle.css.map*/
