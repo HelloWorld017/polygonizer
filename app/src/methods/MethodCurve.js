@@ -46,7 +46,7 @@ class MethodCurve extends Method {
 	}
 
 	get lines() {
-		const precision = this.options.precisionLength ?
+		const precision = this.options.precisionByLength ?
 			Math.ceil(this.length / this.options.precisionLength) :
 			this.options.precision;
 

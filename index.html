@@ -3,28 +3,11 @@
 	<head>
 		<title>Polygonizer</title>
 		<meta charset="utf-8">
-
-		<style>
-			canvas {
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100vw;
-				height: 100vh;
-			}
-		</style>
 	</head>
 
 	<body>
-		<canvas></canvas>
-		<div style="position: relative"></div>
+		<main id="app"></main>
 
 		<script src="/dist/polygonizer.bundle.js"></script>
-		<script>
-			(async () => {
-				const source = await fetch('/examples/dolphin.svg');
-
-			});
-		</script>
 	</body>
 </html>
