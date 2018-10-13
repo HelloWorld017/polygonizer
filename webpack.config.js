@@ -5,7 +5,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBarPlugin = require('webpackbar');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
-const styleLoader = process.env.NODE_ENV !== 'production' ?
+const nodeEnv = process.env.NODE_ENV.trim() || 'development';
+
+const styleLoader = nodeEnv !== 'production' ?
 	'vue-style-loader'
 	: MiniCssExtractPlugin.loader;
 
@@ -39,6 +41,7 @@ const cssLoader = [
 	postcssLoader
 ];
 
+
 module.exports = {
 	entry: {
 		polygonizer: path.resolve(__dirname, 'app', 'src', 'index.js')
@@ -50,7 +53,7 @@ module.exports = {
 		filename: '[name].bundle.js'
 	},
 
-	mode: process.env.NODE_ENV || 'development',
+	mode: nodeEnv,
 
 	module: {
 		rules: [
@@ -98,9 +101,11 @@ module.exports = {
 
 	plugins: [
 		new webpack.EnvironmentPlugin({
-			NODE_ENV: 'development'
+			NODE_ENV: nodeEnv
 		}),
-		new MiniCssExtractPlugin(),
+		new MiniCssExtractPlugin({
+			filename: '[name].bundle.css'
+		}),
 		new VueLoaderPlugin(),
 		new WebpackBarPlugin({
 			profile: true
@@ -110,7 +115,7 @@ module.exports = {
 	devtool: '#eval-source-map'
 };
 
-if(process.env.NODE_ENV === 'production'){
+if(nodeEnv === 'production'){
 	module.exports.devtool = '#source-map';
 	module.exports.optimization = {
 		minimize: true
