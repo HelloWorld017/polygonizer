@@ -8,21 +8,22 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HelloWorld017/effgen.git"
+    "url": "git+https://github.com/HelloWorld017/polygonizer.git"
   },
   "keywords": [
-    "vfx"
+    "triangulation", "svg"
   ],
   "author": "Khinenw",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/HelloWorld017/effgen/issues"
+    "url": "https://github.com/HelloWorld017/polygonizer/issues"
   },
-  "homepage": "https://github.com/HelloWorld017/effgen#readme",
+  "homepage": "https://github.com/HelloWorld017/polygonizer#readme",
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "babel-loader": "^8.0.4",
