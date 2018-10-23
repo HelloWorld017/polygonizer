@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBarPlugin = require('webpackbar');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
-const nodeEnv = process.env.NODE_ENV.trim() || 'development';
+const nodeEnv = (process.env.NODE_ENV || 'development').trim();
 
 const styleLoader = nodeEnv !== 'production' ?
 	'vue-style-loader'

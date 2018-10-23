@@ -33,19 +33,18 @@ class Parser {
 		const doc = new DOMParser().parseFromString(svg);
 		const nodes = doc.documentElement.getElementsByTagName("path");
 
-		const path = [...Array(nodes.length)].map(
-			(v, k) => this.parsePath(nodes[k].getAttribute("d"), nodes[k].getAttribute('fill'))
-		);
-
 		let width = doc.documentElement.getAttribute('width');
 		let height = doc.documentElement.getAttribute('height');
 
 		const viewBox = doc.documentElement.getAttribute('viewBox');
+		const offset = {x: 0, y: 0};
 		if(viewBox) {
-			const split = viewBox.split(' ');
+			const split = viewBox.split(' ').map(v => parseInt(v));
 
-			width = split[2] - split[0];
-			height = split[3] - split[1];
+			width = split[2];
+			height = split[3];
+			offset.x = -split[0];
+			offset.y = -split[1];
 		}
 
 		if(!width) {
@@ -55,20 +54,24 @@ class Parser {
 		if(!height) {
 			height = 0;
 		}
-
+		
+		const path = [...Array(nodes.length)].map(
+			(v, k) => this.parsePath(nodes[k].getAttribute("d"), nodes[k].getAttribute('fill'), offset)
+		);
+	
 		return {path, width, height};
 	}
 
-	parsePath(d, color) {
+	parsePath(d, color, {x: offsetX, y: offsetY}) {
 		const paths = [];
 
 		const addCurve = (method) => {
 			paths[0].addMethod(
 				new MethodCurve(
-					new Point(method.x0, method.y0),
-					new Point(method.x1, method.y1),
-					new Point(method.x2, method.y2),
-					new Point(method.x, method.y),
+					new Point(method.x0 + offsetX, method.y0 + offsetY),
+					new Point(method.x1 + offsetX, method.y1 + offsetY),
+					new Point(method.x2 + offsetX, method.y2 + offsetY),
+					new Point(method.x + offsetX, method.y + offsetY),
 					this.options
 				)
 			);
@@ -111,7 +114,10 @@ class Parser {
 				case 'V':
 				case 'H':
 					paths[0].addMethod(
-						new MethodLine(new Point(method.x0, method.y0), new Point(method.x, method.y))
+						new MethodLine(
+							new Point(method.x0 + offsetX, method.y0 + offsetY),
+							new Point(method.x + offsetX, method.y + offsetY)
+						)
 					);
 					break;
 
